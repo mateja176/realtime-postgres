@@ -1,6 +1,9 @@
+import dotenv from 'dotenv';
 import express from 'express';
 import pg, { PoolClient } from 'pg';
 import Pusher from 'pusher';
+
+dotenv.config();
 
 const app = express();
 
