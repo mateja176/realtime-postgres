@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "migrate:create": "db-migrate create realtime_table --sql-file",
-    "migrate:up": "db-migrate up"
+    "migrate:up": "db-migrate up",
+    "dev": "nodemon src/index.ts --exec ts-node"
   },
   "keywords": [],
   "author": "Mateja Petrovic <mateja176@gmail.com> (https://github.com/mateja176)",
