@@ -41,7 +41,7 @@ assertNonNullableObject(pusherOpts);
 // Create an instance of Pusher
 const pusher = new Pusher({
   ...pusherOpts,
-  encrypted: true,
+  useTLS: true,
 });
 
 pool.connect((err, client) => {
