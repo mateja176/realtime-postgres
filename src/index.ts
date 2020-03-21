@@ -1,11 +1,11 @@
 import express from 'express';
-import pg from 'pg';
+import pg, { PoolClient } from 'pg';
 import Pusher from 'pusher';
 
 const app = express();
 
 // declare variable to hold database connection
-let pgClient;
+let pgClient: PoolClient;
 
 // set the view engine to ejs
 app.set('view engine', 'ejs');
@@ -57,6 +57,11 @@ pool.connect((err, client) => {
     );
   });
   const query = client.query('LISTEN watch_realtime_table');
+});
+
+app.get('/', async (req, res) => {
+  const data = await pgClient.query('SELECT * FROM realtime_table');
+  return res.render('index', { table: data.rows });
 });
 
 // listen on the app
