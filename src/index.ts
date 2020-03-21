@@ -2,8 +2,6 @@ import express from 'express';
 import pg from 'pg';
 import Pusher from 'pusher';
 
-require('dotenv').config();
-
 const app = express();
 
 // declare variable to hold database connection
