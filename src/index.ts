@@ -49,6 +49,14 @@ pool.connect((err, client) => {
     console.log(err);
   }
   pgClient = client;
+  client.on('notification', msg => {
+    pusher.trigger(
+      'watch_realtime_table',
+      'new_record',
+      JSON.parse(msg.payload || JSON.stringify({})),
+    );
+  });
+  const query = client.query('LISTEN watch_realtime_table');
 });
 
 // listen on the app
