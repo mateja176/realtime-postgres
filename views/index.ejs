@@ -38,9 +38,9 @@
 </div>
 
 <script>
-  var pusher = new Pusher('XXX_APP_KEY', {
-    cluster: 'XXX_APP_CLUSTER',
-    encrypted: true,
+  var pusher = new Pusher('5acf12522db0491aeef5', {
+    cluster: 'eu',
+    useTLS: true,
   });
 
   var channel = pusher.subscribe('watch_realtime_table');
